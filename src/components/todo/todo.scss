@@ -1,0 +1,63 @@
+.todo {
+    border: 1px solid black;
+    border-radius: 20px;
+    transition: var(--transition);
+    cursor: pointer;
+    opacity: 0.8;
+    
+
+    &:hover {
+        transform: scale(1.03);
+        border-color: var(--color-accent2);
+        opacity: 1;
+
+        .todo__title {
+            color: var(--color-accent2);
+
+        }
+
+    }
+
+    &__inner {
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        background-color: var(--color-bg);
+        padding: 25px;
+        border-radius: 20px;
+        
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    &__button {
+        background-color: var( --color-button-bg);
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 2px solid var(--color-accent2);
+        cursor: pointer;
+        transition: var(--transition);
+        outline: none;
+        
+
+        &:hover{
+            box-shadow: 0 0 15px var(--color-accent2);
+            transform: scale(1.05);
+
+        }
+
+        &:active{
+            opacity: 0.5;
+            transform: scale(0.8);
+
+        }
+        
+    
+    }
+
+    
+}

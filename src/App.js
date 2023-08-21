@@ -1,16 +1,11 @@
 import React from "react";
-import Container from "./components/container/Container";
-import Header from "./components/header/Header";
-import './style/style.scss';
-
- 
+import "./style/style.scss";
+import PageTodo from "./page/PageTodo";
 
 function App() {
   return (
     <div className="App">
-      <Container>
-      <Header/>
-      </Container>
+      <PageTodo/>
     </div>
   );
 }
