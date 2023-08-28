@@ -1,12 +1,12 @@
 import './todoBox.scss';
 import Todo from "../todo/Todo";
-import Input from "../../input/Input";
+import Form from '../../input/Form';
 
 const TodoBox = function({todos, onDelete, addTodo}) {
 
 
     return <div className="todo-box">
-        <Input addTodo={addTodo}/>
+        <Form addTodo={addTodo}/>
         {todos.map((todo) => <Todo onDelete={onDelete} key={todo.id} id={todo.id} title={todo.title}/>)}
         </div>
 

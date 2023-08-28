@@ -1,0 +1,45 @@
+.form {
+  display: flex;
+  justify-content: space-between;
+  background: linear-gradient(45deg, var(--color-bg-rose), var(--color-bg-violet));
+  border: 2px solid rgb(231, 173, 211);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 90px;
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 0 15px var(--color-shadow-accent);
+    transform: scale(1.0);
+  }
+
+  &__input {
+    border: 1px solid var(--color-accent2);
+    border-radius: 10px;
+    background-color: var(--color-bg);
+    width: 70%;
+    outline: 0.5px solid var(--color-accent3);
+    padding-left: 10px;
+
+  }
+
+  &__btn {
+    background-color: var(--color-button-bg);
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: 2px solid var(--color-accent2);
+    cursor: pointer;
+    transition: var(--transition);
+    outline: none;
+
+    &:hover {
+      box-shadow: 0 0 15px var(--color-accent2);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+  }
+}

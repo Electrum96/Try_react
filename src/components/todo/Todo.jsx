@@ -10,6 +10,7 @@ const Todo = function ({ title, id, onDelete }) {
     <div className="todo">
       <label className="todo__inner">
         <input type="checkbox" className="todo__checkbox"></input>
+        <span className="todo__custom-checkbox"></span>
         <h2 className="todo__title">{title}</h2>
         <button className="todo__button" onClick={removeTodo}>
           Delete

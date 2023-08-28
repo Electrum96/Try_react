@@ -1,3 +1,14 @@
-.header{
-    background-color: aqua;
+.header {
+  background-color: var(--color-bg);
+  margin: 0 auto;
+  padding: 30px;
+  opacity: .9;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    justify-content:flex-start;
+  }
 }
