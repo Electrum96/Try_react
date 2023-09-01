@@ -24,6 +24,7 @@
 @mixin button-style() {
         background-color: var( --color-button-bg);
         padding: 0.2rem 0.5rem;
+        padding: 10px 15px;
         border-radius: 10px;
         border: 2px solid var(--color-accent2);
         cursor: pointer;

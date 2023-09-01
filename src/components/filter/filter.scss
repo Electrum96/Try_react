@@ -1,0 +1,9 @@
+@import '../../style/mixins';
+
+.filter-button {
+     @include button-style;
+
+     &:hover{
+        @include hover-effect() 
+    }
+}
