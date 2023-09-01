@@ -1,32 +1,47 @@
-import React, {useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./pageTodo.scss";
 import Container from "../components/container/Container";
 import TodoBox from "../components/todo-box/TodoBox";
 
-const PageTodo = function () {
-const initState = [{id:1, title:"Title1"}, {id:2, title:"Title2"}, {id:3, title:"Title3"},{id:4, title:"Title4"}, {id:5, title:"Title5"}, {id:6, title:"Title6"}, {id:7, title:"Title7"}, {id:8, title:"Title8"},{id:9, title:"Title9"}, {id:10, title:"Title10"}]
-const [todos, setTodos] = useState(initState);
+const PageTodo = function () { //родительский компонент
+  const dataString = localStorage.getItem("data"); // получает данные 
+  const initState = dataString ? JSON.parse(dataString) : []; // если данные есть парсит, если нет - возвращает пустой массив
+  const [todos, setTodos] = useState(initState); // полученный выше результат присваевается в state
 
-// useEffect(() => {
-//     fetch('https://jsonplaceholder.typicode.com/todos').then((answer) => answer.json()).then((json) =>  setTodos(json))
-// }, [])
+  useEffect(() => {
+    localStorage.setItem("data", JSON.stringify(todos)); // обновляет данные в localStorage если в массиве что-то поменялось
+  }, [todos]);
 
-function onDelete(id) {
-setTodos(todos.filter((todo) => todo.id !== id))
-}
+  function onDelete(id) {
+    setTodos(todos.filter((todo) => todo.id !== id)); // удаление todo, фильтрует массив данных на основании id и изменяет state
+  }
 
-function addTodo(value){
-  const newArray =todos.slice();
-  newArray.unshift({id:newArray.length+1, title:value});
-  setTodos(newArray);
-  console.log(newArray);
-}
+  function addTodo(value) {
+    const newTodo = { //формируется todo со значением пришедшим из формы
+      id: window.crypto.randomUUID(), //генерация уникального id
+      title: value,
+      status: false, 
+    };
+    setTodos([newTodo, ...todos]); // изменение состояния с новым todo путем деструктуризации массива объектов
+  }
+
+  function handleCheck(id) {
+    const newState = todos.map((todo) =>
+      todo.id === id ? { ...todo, status: !todo.status } : todo //если элемент найден, то изменяется статус, найденного элемента, возвращается копия массива 
+    );
+
+    setTodos(newState); //обновление состояния новым массивом
+  }
 
   return (
-    <div className="container">
-  <Container>
-    <TodoBox  todos={todos} onDelete={onDelete}  addTodo={addTodo} />
-  </Container>
-  </div>)
+    <Container>
+      <TodoBox
+        todos={todos}
+        onDelete={onDelete}
+        addTodo={addTodo}
+        onCheckClick={handleCheck}
+      />
+    </Container>
+  );
 };
 export default PageTodo;

@@ -1,12 +1,14 @@
+@import '../style/mixins';
 .form {
   display: flex;
   justify-content: space-between;
   background: linear-gradient(45deg, var(--color-bg-rose), var(--color-bg-violet));
-  border: 2px solid rgb(231, 173, 211);
+  @include border-style();
   border-radius: 20px;
-  padding: 30px;
+  padding: 1.5rem;
   margin-top: 90px;
   cursor: pointer;
+  
 
   &:hover {
     box-shadow: 0 0 15px var(--color-shadow-accent);
@@ -29,12 +31,12 @@
     border-radius: 10px;
     border: 2px solid var(--color-accent2);
     cursor: pointer;
+    text-transform: uppercase;
     transition: var(--transition);
     outline: none;
 
     &:hover {
-      box-shadow: 0 0 15px var(--color-accent2);
-      transform: scale(1.05);
+      @include hover-effect();
     }
 
     &:active {

@@ -1,5 +1,12 @@
 @import './reset';
 @import './variable';
+@import './mixins';
+
+:root {
+    font-size: calc(1vmin + 0.8em);
+    font-family: "Roboto";
+    
+}
 
 
 

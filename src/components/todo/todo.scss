@@ -1,15 +1,15 @@
+@import '../../style/mixins';
 .todo {
-    border: 1px solid black;
+    @include border-style();
     border-radius: 20px;
     transition: var(--transition);
-    cursor: pointer;
     opacity: 0.8;
     
 
     &:hover {
         transform: scale(1.03);
-        border-color: var(--color-accent2);
         opacity: 1;
+        @include hover-effect ;
 
         .todo__title {
             color: var(--color-accent2);
@@ -65,29 +65,28 @@
         justify-content: space-between;
         align-items: center;
         background-color: var(--color-bg);
-        padding: 25px;
+        padding: 1.5rem;
         border-radius: 20px;
+        cursor: pointer;
         
     }
 
     &__title {
-        text-transform: uppercase;
-        font-weight: 700;
+        text-transform: initial;
+        font-weight: 200;
     }
 
-    &__button {
-        background-color: var( --color-button-bg);
-        padding: 10px 15px;
-        border-radius: 10px;
-        border: 2px solid var(--color-accent2);
-        cursor: pointer;
-        transition: var(--transition);
-        outline: none;
+    &__btn-wrp{
+        display: flex;
+        gap: 1em;
+    }
+
+    &__button, &__button-edit {
+        @include button-style;
         
 
         &:hover{
-            box-shadow: 0 0 15px var(--color-accent2);
-            transform: scale(1.05);
+            @include hover-effect() 
         }
 
         &:active{
