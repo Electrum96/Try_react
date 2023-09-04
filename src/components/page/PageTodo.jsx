@@ -22,7 +22,7 @@ const PageTodo = function () {
     const newTodo = {
       //формируется todo со значением пришедшим из формы
       id: window.crypto.randomUUID(), //генерация уникального id
-      title: value.split(""),
+      title: value,
       status: false,
     };
     setTodos([newTodo, ...todos]); // изменение состояния с новым todo путем деструктуризации массива объектов
@@ -46,6 +46,7 @@ const PageTodo = function () {
     }  
     const result = todos.filter((todo) => todo.title.indexOf(search) > -1) //если ничего не найдено, то вернет -1 и условие не отработает, если найдено - вернет индекс, гже найдена подстрока
     setTodos(result)
+    
   }
 
   return (
